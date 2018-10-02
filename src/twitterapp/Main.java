@@ -21,10 +21,10 @@ public class Main {
         
         
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey("") 
-                .setOAuthConsumerSecret("")
-                .setOAuthAccessToken("")
-                .setOAuthAccessTokenSecret("");
+                .setOAuthConsumerKey("s3vvKcx6DwySzyFQ27jYdLMEA") 
+                .setOAuthConsumerSecret("oxo2Y9BMpXSIkPIlQ3s8SpwhrDnIaIWOhQXM0DzwVMV0Zkq5dF")
+                .setOAuthAccessToken("833741570662821891-M07arKYTNSU5pN96MVQmOMLMpITTzx5")
+                .setOAuthAccessTokenSecret("Uim0JDgleEbQA00hphtejl3Zo64X2iz8GHKextAGLyQjd");
         
         TwitterFactory tf = new TwitterFactory(cb.build());
         twitter4j.Twitter twitter = tf.getInstance();
