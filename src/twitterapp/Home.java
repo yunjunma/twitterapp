@@ -26,16 +26,16 @@ public class Home extends javax.swing.JFrame {
     public Home(Twitter mTwitter) {
         this.twitter = mTwitter;
         initComponents();
-        try {
-            List<Status> myStatus = twitter.getUserTimeline();
-            List<UserList> friends = twitter.getUserLists(10);
-            
-            friends.forEach((friend) -> {
-                txtFdFriends.append("ID: " +friend.getId() + ", Name: " + friend.getFullName());
-            });
-        } catch (TwitterException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            List<Status> myStatus = twitter.getUserTimeline();
+//            List<UserList> friends = twitter.getUserLists(10);
+//            
+//            friends.forEach((friend) -> {
+//                txtFdFriends.append("ID: " +friend.getId() + ", Name: " + friend.getFullName());
+//            });
+//        } catch (TwitterException ex) {
+//            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
     }
 
@@ -64,9 +64,11 @@ public class Home extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtFriends1 = new javax.swing.JScrollPane();
-        txtFdFriends1 = new javax.swing.JTextArea();
         jProgressBar1 = new javax.swing.JProgressBar();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtFriendList = new javax.swing.JTextArea();
+        txtFriends1 = new javax.swing.JScrollPane();
+        txtFdRetweets = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,13 +87,13 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Friends:");
+        jLabel2.setText("Tweets from Timeline:");
 
         txtFdFriends.setColumns(20);
         txtFdFriends.setRows(5);
         txtFriends.setViewportView(txtFdFriends);
 
-        jLabel3.setText("Friends:");
+        jLabel3.setText("ReTweet of me");
 
         jLabel4.setText("Friends:");
 
@@ -107,9 +109,13 @@ public class Home extends javax.swing.JFrame {
 
         jLabel10.setText("Friends:");
 
-        txtFdFriends1.setColumns(20);
-        txtFdFriends1.setRows(5);
-        txtFriends1.setViewportView(txtFdFriends1);
+        txtFriendList.setColumns(20);
+        txtFriendList.setRows(5);
+        jScrollPane1.setViewportView(txtFriendList);
+
+        txtFdRetweets.setColumns(20);
+        txtFdRetweets.setRows(5);
+        txtFriends1.setViewportView(txtFdRetweets);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,25 +126,30 @@ public class Home extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtUserStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnUpdate))
-                                    .addComponent(lbUserStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtFriends, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(txtFriends, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFriends1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
-                                    .addComponent(txtFriends1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(5, 5, 5))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(txtUserStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(btnUpdate))
+                                            .addComponent(lbUserStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,12 +179,14 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtFriends, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFriends1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(txtFriends))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addGap(87, 87, 87)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtFriends1)
+                .addGap(4, 4, 4)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(jLabel4)
@@ -187,7 +200,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(48, 48, 48))
         );
 
         pack();
@@ -199,9 +212,29 @@ public class Home extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         try {
-            Status status = twitter.updateStatus(txtUserStatus.getText());
-            lbUserStatus.setText("" + status.getText()+": " + status.getCreatedAt());
-            JOptionPane.showMessageDialog(this, "Status Update", "Info", JOptionPane.OK_OPTION);
+            //Jun post a new tweet in the front page
+//            Status status = twitter.updateStatus(txtUserStatus.getText());
+//            lbUserStatus.setText("" + status.getText()+": " + status.getCreatedAt());
+//            JOptionPane.showMessageDialog(this, "Status Update", "Info", JOptionPane.OK_OPTION);
+            
+            //Jun, get tweets from Home Time Line
+            List<Status> statuses = twitter.getHomeTimeline();
+            statuses.forEach((s) -> {
+                txtFdFriends.append("Name: " +s.getUser().getName() + ", tweet: " + s.getText()+"\n");
+            });
+            
+            //Jun, get the friends list
+            long cursor = -1;
+            IDs ids = twitter.getFriendsIDs(cursor);
+            for (long id : ids.getIDs()) {
+                User user = twitter.showUser(id);
+                txtFriendList.append(user.getName() + ": "+id + "\n");
+//                System.out.println(id);
+            }
+            
+            //Jun, retweet of me
+            
+            
         } catch (TwitterException ex) {
             Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -257,9 +290,11 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbUserStatus;
     private javax.swing.JTextArea txtFdFriends;
-    private javax.swing.JTextArea txtFdFriends1;
+    private javax.swing.JTextArea txtFdRetweets;
+    private javax.swing.JTextArea txtFriendList;
     private javax.swing.JScrollPane txtFriends;
     private javax.swing.JScrollPane txtFriends1;
     private javax.swing.JTextField txtUserStatus;

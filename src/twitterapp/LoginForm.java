@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//Jun, this class is not useful anymore. please ignore this class.
 package twitterapp;
 
 import twitter4j.TwitterFactory;

@@ -19,7 +19,7 @@ public class Main {
 //        login.setVisible(true);
         ConfigurationBuilder cb = new ConfigurationBuilder();
         
-        
+        //Jun, use Richard's twitter's API key
         cb.setDebugEnabled(true)
                 .setOAuthConsumerKey("s3vvKcx6DwySzyFQ27jYdLMEA") 
                 .setOAuthConsumerSecret("oxo2Y9BMpXSIkPIlQ3s8SpwhrDnIaIWOhQXM0DzwVMV0Zkq5dF")
