@@ -9,9 +9,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-//import twitter4j.Twitter;
-//import twitter4j.Status;
-//import twitter4j.TwitterException;
+
 import twitter4j.*;
 /**
  *
@@ -71,6 +69,12 @@ public class Home extends javax.swing.JFrame {
         trendsField = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         userTimeline = new javax.swing.JTextArea();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtTo = new javax.swing.JTextField();
+        txtMessage = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        btnSend = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,6 +136,31 @@ public class Home extends javax.swing.JFrame {
         userTimeline.setRows(5);
         jScrollPane4.setViewportView(userTimeline);
 
+        jLabel11.setText("Send a message");
+
+        jLabel12.setText("To:");
+
+        txtTo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtToActionPerformed(evt);
+            }
+        });
+
+        txtMessage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMessageActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Message:");
+
+        btnSend.setText("Send");
+        btnSend.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSendActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,11 +168,6 @@ public class Home extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -166,20 +190,31 @@ public class Home extends javax.swing.JFrame {
                                         .addComponent(btnUpdate))
                                     .addComponent(lbUserStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel4)
-                            .addComponent(tweetMentioningMe, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tweetMentioningMe, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel12)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtTo))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane1))
-                                .addGap(45, 45, 45))))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13)
+                                    .addComponent(btnSend, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel9)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
+                        .addContainerGap(45, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,7 +240,7 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(tweetMentioningMe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -215,7 +250,20 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
-                .addGap(161, 161, 161))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(59, 59, 59))
         );
 
         pack();
@@ -227,18 +275,18 @@ public class Home extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         try {
-            //Jun post a new tweet in the front page
-//            Status status = twitter.updateStatus(txtUserStatus.getText());
-//            lbUserStatus.setText("" + status.getText()+": " + status.getCreatedAt());
-//            JOptionPane.showMessageDialog(this, "Status Update", "Info", JOptionPane.OK_OPTION);
+            //1. Jun post a new tweet in the front page
+            Status status = twitter.updateStatus(txtUserStatus.getText());
+            lbUserStatus.setText("" + status.getText()+": " + status.getCreatedAt());
+            JOptionPane.showMessageDialog(this, "Status Update", "Info", JOptionPane.OK_OPTION);
             
-//            Jun, get tweets from Home Time Line
+            //2. Jun, get tweets from Home Time Line
             List<Status> statuses = twitter.getHomeTimeline();
             statuses.forEach((s) -> {
                 txtFdFriends.append("Name: " +s.getUser().getName() + ", tweet: " + s.getText()+"\n");
             });
             
-//            Richard, get all the user tweets, replies, retweets
+            //3. Richard, get all the user tweets, replies, retweets
             List<Status> userTimeLine = twitter.getUserTimeline();
             userTimeLine.forEach((s) -> {
 //                System.out.println("Name: " +s.getUser().getName() + ", tweet: " + s.getText()+"\n");
@@ -247,7 +295,7 @@ public class Home extends javax.swing.JFrame {
             
  
             
-            //Jun, get the friends list
+            //4. Jun, get the friends list
             long cursor = -1;
             IDs ids = twitter.getFriendsIDs(cursor);
             for (long id : ids.getIDs()) {
@@ -256,7 +304,7 @@ public class Home extends javax.swing.JFrame {
 //                System.out.println(id);
             }
             
-//         Richard, get the followers of the user
+            //5. Richard, get the followers of the user
             IDs followersIds = twitter.getFollowersIDs(cursor);
             for (long id : followersIds.getIDs()) {
                 User follower = twitter.showUser(id);
@@ -264,17 +312,13 @@ public class Home extends javax.swing.JFrame {
 //                System.out.println(follower.getName());
             }
             
-            // Richard, get the tweet metioing me
+            //6. Richard, get the tweet metioing me
             List <Status> tweetMentioned = twitter.getMentionsTimeline();
             tweetMentioned.forEach((t) -> {
                 tweetMentioningMe.append("Name: " +t.getUser().getName() + ", tweet metioned: " + t.getText()+"\n");
             });
-            
-            // Richcard, send a message to a user with @"username"
-//            Twitter sender = TwitterFactory.getSingleton();
-//            DirectMessage directMessage = twitter.sendDirectMessage("MaYunjun","Twitter Message!");
 
-//        Richard, display current trends names, hashtags
+            //8. Richard, display current trends names, hashtags
 //        The getPlaceTrends takes a parameter of Where on Earth ID, which in United States, is 23424977
             Trends trends = twitter.getPlaceTrends(23424977);
             for(int i = 0; i < trends.getTrends().length; i++)
@@ -282,18 +326,30 @@ public class Home extends javax.swing.JFrame {
                 trendsField.append(trends.getTrends()[i].getName() + "\n");
 //                System.out.println(trends.getTrends()[i].getName());
             }
-            
-             
-             
-            
+               
             
         } catch (TwitterException ex) {
             Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
+        }       
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void txtToActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtToActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtToActionPerformed
+
+    private void txtMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMessageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMessageActionPerformed
+
+    private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
+        try {    
+            //7. Richcard, send a message to a user with @"username"
+            Twitter sender = TwitterFactory.getSingleton();
+            DirectMessage directMessage = twitter.sendDirectMessage(txtTo.getText(),txtMessage.getText());
+        } catch (TwitterException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnSendActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,10 +387,14 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSend;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JTextArea followersField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -352,6 +412,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextArea txtFdFriends;
     private javax.swing.JTextArea txtFriendList;
     private javax.swing.JScrollPane txtFriends;
+    private javax.swing.JTextField txtMessage;
+    private javax.swing.JTextField txtTo;
     private javax.swing.JTextField txtUserStatus;
     private javax.swing.JTextArea userTimeline;
     // End of variables declaration//GEN-END:variables

@@ -28,7 +28,8 @@ public class Main {
         
         TwitterFactory tf = new TwitterFactory(cb.build());
         twitter4j.Twitter twitter = tf.getInstance();
-//        twitter = tf.getInstance();
+
+        //Jun, create a home object 
         Home home = new Home(twitter);
         home.setVisible(true);
         
